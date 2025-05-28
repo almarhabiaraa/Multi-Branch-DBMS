@@ -1,1 +1,1 @@
-# Multi-Branch-DBMS
+# Multi-Branch Database Management System
