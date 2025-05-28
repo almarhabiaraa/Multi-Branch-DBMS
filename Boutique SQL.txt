@@ -1,0 +1,816 @@
+Microsoft Windows [Version 10.0.19044.1706]
+(c) Microsoft Corporation. All rights reserved.
+
+C:\xampp\mysql>mysql -u root -p
+Enter password:
+Welcome to the MariaDB monitor.  Commands end with ; or \g.
+Your MariaDB connection id is 14
+Server version: 10.4.22-MariaDB mariadb.org binary distribution
+
+Copyright (c) 2000, 2018, Oracle, MariaDB Corporation Ab and others.
+
+Type 'help;' or '\h' for help. Type '\c' to clear the current input statement.
+
+MariaDB [(none)]> use Walaa
+Database changed
+MariaDB [Walaa]> CREATE TABLE Branch(
+    -> BranchNo VARCHAR(10),
+    -> City VARCHAR (20),
+    -> State VARCHAR (20),
+    -> Street VARCHAR (30),
+    -> Zipcode VARCHAR (10),
+    -> TelephoneNo VARCHAR (20),
+    -> PRIMARY KEY (BranchNo));
+Query OK, 0 rows affected (0.037 sec)
+
+MariaDB [Walaa]> desc Branch;
++-------------+-------------+------+-----+---------+-------+
+| Field       | Type        | Null | Key | Default | Extra |
++-------------+-------------+------+-----+---------+-------+
+| BranchNo    | varchar(10) | NO   | PRI | NULL    |       |
+| City        | varchar(20) | YES  |     | NULL    |       |
+| State       | varchar(20) | YES  |     | NULL    |       |
+| Street      | varchar(30) | YES  |     | NULL    |       |
+| Zipcode     | varchar(10) | YES  |     | NULL    |       |
+| TelephoneNo | varchar(20) | YES  |     | NULL    |       |
++-------------+-------------+------+-----+---------+-------+
+6 rows in set (0.025 sec)
+
+MariaDB [Walaa]> INSERT INTO Branch VALUES('b1001','Jeddah','Al-Hamraa','Andalus','23212','+966522308734');
+Query OK, 1 row affected (0.010 sec)
+
+MariaDB [Walaa]> INSERT INTO Branch VALUES('b1002','Riyadh','Al-Yasmin','Anas Ibn Malik Rd','13325','+966568889065');
+Query OK, 1 row affected (0.008 sec)
+
+MariaDB [Walaa]> INSERT INTO Branch VALUES('b1003','Riyadh','Al-Malqa','Weg Valley','13522','+966530001212');
+Query OK, 1 row affected (0.006 sec)
+
+MariaDB [Walaa]> INSERT INTO Branch VALUES('b1004','Dammam','Al-Muntazah','Prince Metib Rd','34242','+966560601713');
+Query OK, 1 row affected (0.007 sec)
+
+MariaDB [Walaa]> SELECT * FROM Branch;
++----------+--------+-------------+-------------------+---------+---------------+
+| BranchNo | City   | State       | Street            | Zipcode | TelephoneNo   |
++----------+--------+-------------+-------------------+---------+---------------+
+| b1001    | Jeddah | Al-Hamraa   | Andalus           | 23212   | +966522308734 |
+| b1002    | Riyadh | Al-Yasmin   | Anas Ibn Malik Rd | 13325   | +966568889065 |
+| b1003    | Riyadh | Al-Malqa    | Weg Valley        | 13522   | +966530001212 |
+| b1004    | Dammam | Al-Muntazah | Prince Metib Rd   | 34242   | +966560601713 |
++----------+--------+-------------+-------------------+---------+---------------+
+4 rows in set (0.002 sec)
+MariaDB [Walaa]> CREATE TABLE Customer(
+    -> CustId VARCHAR (20),
+    -> PhoneNo VARCHAR (20),
+    -> Email VARCHAR (50),
+    -> Fname VARCHAR (10),
+    -> Lname VARCHAR (10),
+    -> CreditLimit VARCHAR (10),
+    -> PRIMARY KEY (CustId));
+    Query OK, 0 rows affected (0.037 sec)
+    MariaDB [Walaa]> desc Customer;
+    +-------------+-------------+------+-----+---------+-------+
+    | Field       | Type        | Null | Key | Default | Extra |
+    +-------------+-------------+------+-----+---------+-------+
+    | CustId      | varchar(10) | NO   | PRI | NULL    |       |
+    | PhoneNo     | varchar(20) | YES  |     | NULL    |       |
+    | Email       | varchar(50) | YES  |     | NULL    |       |
+    | Fname       | varchar(10) | YES  |     | NULL    |       |
+    | Lname       | varchar(10) | YES  |     | NULL    |       |
+    | CreditLimit | varchar(10) | YES  |     | NULL    |       |
+    +-------------+-------------+------+-----+---------+-------+
+    6 rows in set (0.009 sec)
+
+    MariaDB [Walaa]> INSERT INTO Customer VALUES('C11110','0590000000','Reem@gmail.com','Reem','Alamier','300');
+    Query OK, 1 row affected (0.005 sec)
+
+    MariaDB [Walaa]> INSERT INTO Customer VALUES('C11111','0591111111','Wed@gmail.com','Wed','Soulyman','350');
+    Query OK, 1 row affected (0.007 sec)
+
+    MariaDB [Walaa]> INSERT INTO Customer VALUES('C11112','0592222222','Ameera@gmail.com','Ameera','Alshumayri','400');
+    Query OK, 1 row affected (0.004 sec)
+
+    MariaDB [Walaa]> INSERT INTO Customer VALUES('C11113','0593333333','Layan@gmail.com','Layan','Almufadda','900');
+    Query OK, 1 row affected (0.004 sec)
+
+    MariaDB [Walaa]> INSERT INTO Customer VALUES('C11114','0594444444','Sadeem@gmail.com','Sadeem','Albalochi','500');
+    Query OK, 1 row affected (0.005 sec)
+
+    MariaDB [Walaa]> INSERT INTO Customer VALUES('C11115','0595555555','Walaa@gmail.com','Walaa','Bin Mahfouz','700');
+    Query OK, 1 row affected, 1 warning (0.008 sec)
+
+    MariaDB [Walaa]> INSERT INTO Customer VALUES('C11116','0596666666','Refan@gmail.com','Refan','Attiah','650');
+    Query OK, 1 row affected (0.007 sec)
+
+    MariaDB [Walaa]> INSERT INTO Customer VALUES('C11117','0597777777','Reham@gmail.com','Reham','Aboueldahab','400');
+    Query OK, 1 row affected, 1 warning (0.007 sec)
+
+    MariaDB [Walaa]> INSERT INTO Customer VALUES('C11118','0598888888','Atheer@gmail.com','Atheer','Albardawil','350');
+    Query OK, 1 row affected (0.007 sec)
+
+    MariaDB [Walaa]> INSERT INTO Customer VALUES('C11119','0599999999','Sahar@gmail.com','Sahar','Alamoudi','600');
+    Query OK, 1 row affected (0.007 sec)
+
+MariaDB [Walaa]> SELECT * FROM Customer;
++--------+------------+------------------+--------+------------+-------------+
+| CustId | PhoneNo    | Email            | Fname  | Lname      | CreditLimit |
++--------+------------+------------------+--------+------------+-------------+
+| C11110 | 0590000000 | Reem@gmail.com   | Reem   | Alamier    | 300         |
+| C11111 | 0591111111 | Wed@gmail.com    | Wed    | Soulyman   | 350         |
+| C11112 | 0592222222 | Ameera@gmail.com | Ameera | Alshumayri | 400         |
+| C11113 | 0593333333 | Layan@gmail.com  | Layan  | Almufadda  | 900         |
+| C11114 | 0594444444 | Sadeem@gmail.com | Sadeem | Albalochi  | 500         |
+| C11115 | 0595555555 | Walaa@gmail.com  | Walaa  | Bin Mahfou | 700         |
+| C11116 | 0596666666 | Refan@gmail.com  | Refan  | Attiah     | 650         |
+| C11117 | 0597777777 | Reham@gmail.com  | Reham  | Aboueldaha | 400         |
+| C11118 | 0598888888 | Atheer@gmail.com | Atheer | Albardawil | 350         |
+| C11119 | 0599999999 | Sahar@gmail.com  | Sahar  | Alamoudi   | 600         |
++--------+------------+------------------+--------+------------+-------------+
+10 rows in set (0.001 sec)
+
+MariaDB [Walaa]> CREATE TABLE Staff(
+    -> StaffID VARCHAR (10),
+    -> Name VARCHAR (10),
+    -> Sex VARCHAR (10),
+    -> Position VARCHAR (15),
+    -> Age VARCHAR (02),
+    -> City VARCHAR (20),
+    -> State VARCHAR (20),
+    -> Street VARCHAR (30),
+    -> Salary FLOAT (50),
+    -> BranchHno VARCHAR (10),
+    -> PRIMARY KEY (StaffID),
+    -> FOREIGN KEY (BranchHno) REFERENCES Branch (BranchNo));
+Query OK, 0 rows affected (0.031 sec)
+
+MariaDB [Walaa]> desc Staff;
++-----------+-------------+------+-----+---------+-------+
+| Field     | Type        | Null | Key | Default | Extra |
++-----------+-------------+------+-----+---------+-------+
+| StaffID   | varchar(10) | NO   | PRI | NULL    |       |
+| Name      | varchar(10) | YES  |     | NULL    |       |
+| Sex       | varchar(10) | YES  |     | NULL    |       |
+| Position  | varchar(15) | YES  |     | NULL    |       |
+| Age       | varchar(2)  | YES  |     | NULL    |       |
+| City      | varchar(20) | YES  |     | NULL    |       |
+| State     | varchar(20) | YES  |     | NULL    |       |
+| Street    | varchar(30) | YES  |     | NULL    |       |
+| Salary    | double      | YES  |     | NULL    |       |
+| BranchHno | varchar(10) | YES  | MUL | NULL    |       |
++-----------+-------------+------+-----+---------+-------+
+10 rows in set (0.013 sec)
+
+MariaDB [Walaa]> INSERT INTO Staff VALUES('S1110','Abdullah','Male','Maneger','29','Jeddah','Ash Shati','Prince Naif','9000','b1001');
+Query OK, 1 row affected (0.010 sec)
+
+MariaDB [Walaa]> INSERT INTO Staff VALUES('S1111','Araa','Female','Employee','20','Jeddah','Arrawudah','Prince Sultan','5000','b1001');
+Query OK, 1 row affected (0.008 sec)
+
+MariaDB [Walaa]> INSERT INTO Staff VALUES('S1112','Layal','Female','Employee','31','Jeddah','Al-Khalidiyah','Al Razi st','5000','b1001');
+Query OK, 1 row affected (0.007 sec)
+
+MariaDB [Walaa]> INSERT INTO Staff VALUES('S1113','Zuhraa','Female','Employee','19','Jeddah','Al-Naeem','An Naeem st','4700','b1001');
+Query OK, 1 row affected (0.008 sec)
+
+MariaDB [Walaa]> INSERT INTO Staff VALUES('S1114','Faisal','Male','Maneger','32','Riyadh','Hiteen','Al-Amariyah','9000','b1002');
+Query OK, 1 row affected (0.008 sec)
+
+MariaDB [Walaa]> INSERT INTO Staff VALUES('S1115','Yara','Female','Employee','24','Riyadh','Al-Arid','Abi Bakr','4900','b1002');
+Query OK, 1 row affected (0.008 sec)
+
+MariaDB [Walaa]> INSERT INTO Staff VALUES('S1116','Yara','Female','Employee','22','Riyadh','Hiteen','Prince Mohammed Rd','4700','b1002');
+Query OK, 1 row affected (0.008 sec)
+
+MariaDB [Walaa]> INSERT INTO Staff VALUES('S1117','Rania','Female','Employee','21','Riyadh','Alyasmin','Anas Ibn Malik Rd','4800','b1002');
+Query OK, 1 row affected (0.008 sec)
+
+MariaDB [Walaa]> INSERT INTO Staff VALUES('S1118','Ahmed','Male','Maneger','35','Riyadh','Al Malqa','Al Hawata','9000','b1003');
+Query OK, 1 row affected (0.007 sec)
+
+MariaDB [Walaa]> INSERT INTO Staff VALUES('S1119','Leen','Female','Employee','23','Riyadh','Al Malqa','Weg Valley','4800','b1003');
+Query OK, 1 row affected (0.007 sec)
+
+MariaDB [Walaa]> INSERT INTO Staff VALUES('S1120','Maryam','Female','Employee','27','Riyadh','Al Yasmin','Al Faraa','4900','b1003');
+Query OK, 1 row affected (0.008 sec)
+
+MariaDB [Walaa]> INSERT INTO Staff VALUES('S1121','Fatimah','Female','Employee','26','Riyadh','Al Narjis','Uthman Ibn Affan Rd','4900','b1003');
+Query OK, 1 row affected (0.008 sec)
+
+MariaDB [Walaa]> INSERT INTO Staff VALUES('S1122','Majed','Male','Maneger','34','Dammam','Ash Shulah','Dhahran Rd','9000','b1004');
+Query OK, 1 row affected (0.008 sec)
+
+MariaDB [Walaa]> INSERT INTO Staff VALUES('S1123','Dana','Female','Employee','27','Dammam','Al Faisaliyah','Al Imam Muhammad Rd','4500','b1004');
+Query OK, 1 row affected (0.008 sec)
+
+MariaDB [Walaa]> INSERT INTO Staff VALUES('S1124','Nareman','Female','Employee','24','Dammam','Al Faisaliyah','Al Aziziah','4700','b1004');
+Query OK, 1 row affected (0.004 sec)
+
+MariaDB [Walaa]> SELECT * FROM Staff;
++---------+----------+--------+----------+------+--------+---------------+---------------------+--------+-----------+
+| StaffID | Name     | Sex    | Position | Age  | City   | State         | Street              | Salary | BranchHno |
++---------+----------+--------+----------+------+--------+---------------+---------------------+--------+-----------+
+| S1110   | Abdullah | Male   | Maneger  | 29   | Jeddah | Ash Shati     | Prince Naif         |   9000 | b1001     |
+| S1111   | Araa     | Female | Employee | 20   | Jeddah | Arrawudah     | Prince Sultan       |   5000 | b1001     |
+| S1112   | Layal    | Female | Employee | 31   | Jeddah | Al-Khalidiyah | Al Razi st          |   5000 | b1001     |
+| S1113   | Zuhraa   | Female | Employee | 19   | Jeddah | Al-Naeem      | An Naeem st         |   4700 | b1001     |
+| S1114   | Faisal   | Male   | Maneger  | 32   | Riyadh | Hiteen        | Al-Amariyah         |   9000 | b1002     |
+| S1115   | Yara     | Female | Employee | 24   | Riyadh | Al-Arid       | Abi Bakr            |   4900 | b1002     |
+| S1116   | Yara     | Female | Employee | 22   | Riyadh | Hiteen        | Prince Mohammed Rd  |   4700 | b1002     |
+| S1117   | Rania    | Female | Employee | 21   | Riyadh | Alyasmin      | Anas Ibn Malik Rd   |   4800 | b1002     |
+| S1118   | Ahmed    | Male   | Maneger  | 35   | Riyadh | Al Malqa      | Al Hawata           |   9000 | b1003     |
+| S1119   | Leen     | Female | Employee | 23   | Riyadh | Al Malqa      | Weg Valley          |   4800 | b1003     |
+| S1120   | Maryam   | Female | Employee | 27   | Riyadh | Al Yasmin     | Al Faraa            |   4900 | b1003     |
+| S1121   | Fatimah  | Female | Employee | 26   | Riyadh | Al Narjis     | Uthman Ibn Affan Rd |   4900 | b1003     |
+| S1122   | Majed    | Male   | Maneger  | 34   | Dammam | Ash Shulah    | Dhahran Rd          |   9000 | b1004     |
+| S1123   | Dana     | Female | Employee | 27   | Dammam | Al Faisaliyah | Al Imam Muhammad Rd |   4500 | b1004     |
+| S1124   | Nareman  | Female | Employee | 24   | Dammam | Al Faisaliyah | Al Aziziah          |   4700 | b1004     |
++---------+----------+--------+----------+------+--------+---------------+---------------------+--------+-----------+
+15 rows in set (0.001 sec)
+
+MariaDB [Walaa]> CREATE TABLE PhoneNo(
+    -> StaffID VARCHAR (10),
+    -> PhoneNo VARCHAR (20),
+    -> PRIMARY KEY (StaffID));
+Query OK, 0 rows affected (0.026 sec)
+
+MariaDB [Walaa]> desc PhoneNo;
++---------+-------------+------+-----+---------+-------+
+| Field   | Type        | Null | Key | Default | Extra |
++---------+-------------+------+-----+---------+-------+
+| StaffID | varchar(10) | NO   | PRI | NULL    |       |
+| PhoneNo | varchar(20) | YES  |     | NULL    |       |
++---------+-------------+------+-----+---------+-------+
+2 rows in set (0.013 sec)
+
+MariaDB [Walaa]> INSERT INTO PhoneNo VALUES('S1110','0561111111');
+Query OK, 1 row affected (0.006 sec)
+
+MariaDB [Walaa]> INSERT INTO PhoneNo VALUES('S1111','0561111122');
+Query OK, 1 row affected (0.004 sec)
+
+MariaDB [Walaa]> INSERT INTO PhoneNo VALUES('S1112','0561111133');
+Query OK, 1 row affected (0.008 sec)
+
+MariaDB [Walaa]> INSERT INTO PhoneNo VALUES('S1113','0561111144');
+Query OK, 1 row affected (0.004 sec)
+
+MariaDB [Walaa]> INSERT INTO PhoneNo VALUES('S1114','0561111145');
+Query OK, 1 row affected (0.007 sec)
+
+MariaDB [Walaa]> INSERT INTO PhoneNo VALUES('S1115','0561111189');
+Query OK, 1 row affected (0.003 sec)
+
+MariaDB [Walaa]> INSERT INTO PhoneNo VALUES('S1116','0561111199');
+Query OK, 1 row affected (0.006 sec)
+
+MariaDB [Walaa]> INSERT INTO PhoneNo VALUES('S1117','0561111155');
+Query OK, 1 row affected (0.006 sec)
+
+MariaDB [Walaa]> INSERT INTO PhoneNo VALUES('S1118','0561111166');
+Query OK, 1 row affected (0.006 sec)
+
+MariaDB [Walaa]> INSERT INTO PhoneNo VALUES('S1119','0561111177');
+Query OK, 1 row affected (0.003 sec)
+
+MariaDB [Walaa]> INSERT INTO PhoneNo VALUES('S1120','0561111188');
+Query OK, 1 row affected (0.006 sec)
+
+MariaDB [Walaa]> INSERT INTO PhoneNo VALUES('S1121','0561111112');
+Query OK, 1 row affected (0.006 sec)
+
+MariaDB [Walaa]> INSERT INTO PhoneNo VALUES('S1122','0561111110');
+Query OK, 1 row affected (0.006 sec)
+
+MariaDB [Walaa]> INSERT INTO PhoneNo VALUES('S1123','0561111888');
+Query OK, 1 row affected (0.005 sec)
+
+MariaDB [Walaa]> INSERT INTO PhoneNo VALUES('S1124','0561111190');
+Query OK, 1 row affected (0.003 sec)
+
+MariaDB [Walaa]> INSERT INTO PhoneNo VALUES('S1125','0561111180');
+Query OK, 1 row affected (0.007 sec)
+
+MariaDB [Walaa]> SELECT * FROM PhoneNo;
++---------+------------+
+| StaffID | PhoneNo    |
++---------+------------+
+| S1110   | 0561111111 |
+| S1111   | 0561111122 |
+| S1112   | 0561111133 |
+| S1113   | 0561111144 |
+| S1114   | 0561111145 |
+| S1115   | 0561111189 |
+| S1116   | 0561111199 |
+| S1117   | 0561111155 |
+| S1118   | 0561111166 |
+| S1119   | 0561111177 |
+| S1120   | 0561111188 |
+| S1121   | 0561111112 |
+| S1122   | 0561111110 |
+| S1123   | 0561111888 |
+| S1124   | 0561111190 |
+| S1125   | 0561111180 |
++---------+------------+
+16 rows in set (0.001 sec)
+
+MariaDB [Walaa]> CREATE TABLE Product(
+    -> ProductNo VARCHAR (10),
+    -> Collection_Name VARCHAR (20),
+    -> Color VARCHAR (20),
+    -> Price FLOAT (10),
+    -> Size VARCHAR (20),
+    -> Quantity VARCHAR (500),
+    -> PRIMARY KEY (ProductNo));
+Query OK, 0 rows affected (0.019 sec)
+
+MariaDB [Walaa]> desc Product;
++-----------------+--------------+------+-----+---------+-------+
+| Field           | Type         | Null | Key | Default | Extra |
++-----------------+--------------+------+-----+---------+-------+
+| ProductNo       | varchar(10)  | NO   | PRI | NULL    |       |
+| Collection_Name | varchar(20)  | YES  |     | NULL    |       |
+| Color           | varchar(20)  | YES  |     | NULL    |       |
+| Price           | float        | YES  |     | NULL    |       |
+| Size            | varchar(20)  | YES  |     | NULL    |       |
+| Quantity        | varchar(500) | YES  |     | NULL    |       |
++-----------------+--------------+------+-----+---------+-------+
+6 rows in set (0.009 sec)
+
+MariaDB [Walaa]> INSERT INTO Product VALUES ('P100111','Summer2022','Fuchsia','390','S-M-L','24');
+Query OK, 1 row affected (0.006 sec)
+
+MariaDB [Walaa]> INSERT INTO Product VALUES ('P100112','Summer2022','White','450','S-M-L','20');
+Query OK, 1 row affected (0.002 sec)
+
+MariaDB [Walaa]> INSERT INTO Product VALUES ('P100113','Summer2022','Lilac','400','S-M-L','16');
+Query OK, 1 row affected (0.006 sec)
+
+MariaDB [Walaa]> INSERT INTO Product VALUES ('P100114','Summer2022','Blue','260','S-M-L','13');
+Query OK, 1 row affected (0.006 sec)
+
+MariaDB [Walaa]> INSERT INTO Product VALUES ('P100115','Summer2022','Red','450','S-M-L','08');
+Query OK, 1 row affected (0.003 sec)
+
+MariaDB [Walaa]> INSERT INTO Product VALUES ('P100116','Summer2022','Pink','200','S-M-L','20');
+Query OK, 1 row affected (0.006 sec)
+
+MariaDB [Walaa]> INSERT INTO Product VALUES ('P100117','Summer2022','Orange','350','S-M-L','12');
+Query OK, 1 row affected (0.006 sec)
+
+MariaDB [Walaa]> SELECT * FROM Product;
++-----------+-----------------+---------+-------+-------+----------+
+| ProductNo | Collection_Name | Color   | Price | Size  | Quantity |
++-----------+-----------------+---------+-------+-------+----------+
+| P100111   | Summer2022      | Fuchsia |   390 | S-M-L | 24       |
+| P100112   | Summer2022      | White   |   450 | S-M-L | 20       |
+| P100113   | Summer2022      | Lilac   |   400 | S-M-L | 16       |
+| P100114   | Summer2022      | Blue    |   260 | S-M-L | 13       |
+| P100115   | Summer2022      | Red     |   450 | S-M-L | 08       |
+| P100116   | Summer2022      | Pink    |   200 | S-M-L | 20       |
+| P100117   | Summer2022      | Orange  |   350 | S-M-L | 12       |
++-----------+-----------------+---------+-------+-------+----------+
+7 rows in set (0.001 sec)
+
+MariaDB [Walaa]> CREATE TABLE has(
+    -> BranchNo VARCHAR (10),
+    -> ProductNo VARCHAR (10),
+    -> FOREIGN KEY (BranchNo) REFERENCES Branch (BranchNo),
+    -> FOREIGN KEY (ProductNo) REFERENCES Product (ProductNo));
+Query OK, 0 rows affected (0.029 sec)
+
+MariaDB [Walaa]> desc has;
++-----------+-------------+------+-----+---------+-------+
+| Field     | Type        | Null | Key | Default | Extra |
++-----------+-------------+------+-----+---------+-------+
+| BranchNo  | varchar(10) | YES  | MUL | NULL    |       |
+| ProductNo | varchar(10) | YES  | MUL | NULL    |       |
++-----------+-------------+------+-----+---------+-------+
+2 rows in set (0.008 sec)
+
+MariaDB [Walaa]> INSERT INTO has VALUES ('b1001','P100111');
+Query OK, 1 row affected (0.002 sec)
+
+MariaDB [Walaa]> INSERT INTO has VALUES ('b1001','P100112');
+Query OK, 1 row affected (0.006 sec)
+
+MariaDB [Walaa]> INSERT INTO has VALUES ('b1001','P100113');
+Query OK, 1 row affected (0.006 sec)
+
+MariaDB [Walaa]> INSERT INTO has VALUES ('b1001','P100114');
+Query OK, 1 row affected (0.005 sec)
+
+MariaDB [Walaa]> INSERT INTO has VALUES ('b1001','P100115');
+Query OK, 1 row affected (0.006 sec)
+
+MariaDB [Walaa]> INSERT INTO has VALUES ('b1001','P100116');
+Query OK, 1 row affected (0.006 sec)
+
+MariaDB [Walaa]> INSERT INTO has VALUES ('b1001','P100117');
+Query OK, 1 row affected (0.006 sec)
+
+MariaDB [Walaa]> INSERT INTO has VALUES ('b1002','P100111');
+Query OK, 1 row affected (0.005 sec)
+
+MariaDB [Walaa]> INSERT INTO has VALUES ('b1002','P100112');
+Query OK, 1 row affected (0.007 sec)
+
+MariaDB [Walaa]> INSERT INTO has VALUES ('b1002','P100113');
+Query OK, 1 row affected (0.008 sec)
+
+MariaDB [Walaa]> INSERT INTO has VALUES ('b1002','P100114');
+Query OK, 1 row affected (0.007 sec)
+
+MariaDB [Walaa]> INSERT INTO has VALUES ('b1002','P100115');
+Query OK, 1 row affected (0.007 sec)
+
+MariaDB [Walaa]> INSERT INTO has VALUES ('b1002','P100116');
+Query OK, 1 row affected (0.007 sec)
+
+MariaDB [Walaa]> INSERT INTO has VALUES ('b1002','P100117');
+Query OK, 1 row affected (0.007 sec)
+
+MariaDB [Walaa]> INSERT INTO has VALUES ('b1003','P100111');
+Query OK, 1 row affected (0.007 sec)
+
+MariaDB [Walaa]> INSERT INTO has VALUES ('b1003','P100112');
+Query OK, 1 row affected (0.006 sec)
+
+MariaDB [Walaa]> INSERT INTO has VALUES ('b1003','P100113');
+Query OK, 1 row affected (0.007 sec)
+
+MariaDB [Walaa]> INSERT INTO has VALUES ('b1003','P100114');
+Query OK, 1 row affected (0.006 sec)
+
+MariaDB [Walaa]> INSERT INTO has VALUES ('b1003','P100115');
+Query OK, 1 row affected (0.007 sec)
+
+MariaDB [Walaa]> INSERT INTO has VALUES ('b1003','P100116');
+Query OK, 1 row affected (0.007 sec)
+
+MariaDB [Walaa]> INSERT INTO has VALUES ('b1003','P100117');
+Query OK, 1 row affected (0.007 sec)
+
+MariaDB [Walaa]> INSERT INTO has VALUES ('b1004','P100111');
+Query OK, 1 row affected (0.003 sec)
+
+MariaDB [Walaa]> INSERT INTO has VALUES ('b1004','P100112');
+Query OK, 1 row affected (0.007 sec)
+
+MariaDB [Walaa]> INSERT INTO has VALUES ('b1004','P100113');
+Query OK, 1 row affected (0.006 sec)
+
+MariaDB [Walaa]> INSERT INTO has VALUES ('b1004','P100114');
+Query OK, 1 row affected (0.007 sec)
+
+MariaDB [Walaa]> INSERT INTO has VALUES ('b1004','P100115');
+Query OK, 1 row affected (0.004 sec)
+
+MariaDB [Walaa]> INSERT INTO has VALUES ('b1004','P100116');
+Query OK, 1 row affected (0.004 sec)
+
+MariaDB [Walaa]> INSERT INTO has VALUES ('b1004','P100117');
+Query OK, 1 row affected (0.006 sec)
+
+MariaDB [Walaa]> SELECT * FROM has;
++----------+-----------+
+| BranchNo | ProductNo |
++----------+-----------+
+| b1001    | P100111   |
+| b1001    | P100112   |
+| b1001    | P100113   |
+| b1001    | P100114   |
+| b1001    | P100115   |
+| b1001    | P100116   |
+| b1001    | P100117   |
+| b1002    | P100111   |
+| b1002    | P100112   |
+| b1002    | P100113   |
+| b1002    | P100114   |
+| b1002    | P100115   |
+| b1002    | P100116   |
+| b1002    | P100117   |
+| b1003    | P100111   |
+| b1003    | P100112   |
+| b1003    | P100113   |
+| b1003    | P100114   |
+| b1003    | P100115   |
+| b1003    | P100116   |
+| b1003    | P100117   |
+| b1004    | P100111   |
+| b1004    | P100112   |
+| b1004    | P100113   |
+| b1004    | P100114   |
+| b1004    | P100115   |
+| b1004    | P100116   |
+| b1004    | P100117   |
++----------+-----------+
+28 rows in set (0.001 sec)
+
+MariaDB [Walaa]> CREATE TABLE Purchase(
+    -> OrderNo VARCHAR (10),
+    -> OrderDate DATE,
+    -> ProductNo VARCHAR (10),
+    -> AreaCode VARCHAR (05),
+    -> PhoneNo VARCHAR (10),
+    -> TotalAmount VARCHAR (10),
+    -> City VARCHAR (20),
+    -> State VARCHAR (20),
+    -> Street VARCHAR (20),
+    -> ZipCode VARCHAR (10),
+    -> CustID VARCHAR (10),
+    -> StaffID VARCHAR (10),
+    -> PRIMARY KEY (OrderNo),
+    -> FOREIGN KEY (ProductNo) REFERENCES Product (ProductNo),
+    -> FOREIGN KEY (CustID) REFERENCES Customer (CustID),
+    -> FOREIGN KEY (StaffID) REFERENCES Staff (StaffID));
+Query OK, 0 rows affected (0.060 sec)
+
+MariaDB [Walaa]> INSERT INTO Purchase VALUES ('OR1110','30-4-2022','P100111','+966','0590000000','780','Jeddah','Arrawudah','Prince Sultan','23212','C11110','S1112');
+Query OK, 1 row affected, 1 warning (0.036 sec)
+
+MariaDB [Walaa]> INSERT INTO Purchase VALUES ('OR1111','10-5-2022','P100112','+966','0591111111','450','Riyadh','Al-Aarid','Abi Bakr','13325','C11111','S1115');
+Query OK, 1 row affected, 1 warning (0.005 sec)
+
+MariaDB [Walaa]> INSERT INTO Purchase VALUES ('OR1112','12-5-2022','P100113','+966','0592222222','800','Riyadh','Alyasmin','Al Faraa','13322','C11112','S1120');
+Query OK, 1 row affected, 1 warning (0.005 sec)
+
+MariaDB [Walaa]> INSERT INTO Purchase VALUES ('OR1113','12-5-2022','P100114','+966','0593333333','520','Dammam','Al Faisaliyah','Al Aziziah','34242','C11113','S1123');
+Query OK, 1 row affected, 1 warning (0.007 sec)
+
+MariaDB [Walaa]> INSERT INTO Purchase VALUES ('OR1114','17-5-2022','P100115','+966','0594444444','900','Jeddah','Al Naeem','An Naeem st','23212','C11114','S1113');
+Query OK, 1 row affected, 1 warning (0.004 sec)
+
+MariaDB [Walaa]> SELECT * FROM Purchase;
++---------+------------+-----------+----------+------------+-------------+--------+---------------+---------------+---------+--------+---------+
+| OrderNo | OrderDate  | ProductNo | AreaCode | PhoneNo    | TotalAmount | City   | State         | Street        | ZipCode | CustID | StaffID |
++---------+------------+-----------+----------+------------+-------------+--------+---------------+---------------+---------+--------+---------+
+| OR1110  | 0000-00-00 | P100111   | +966     | 0590000000 | 780         | Jeddah | Arrawudah     | Prince Sultan | 23212   | C11110 | S1112   |
+| OR1111  | 0000-00-00 | P100112   | +966     | 0591111111 | 450         | Riyadh | Al-Aarid      | Abi Bakr      | 13325   | C11111 | S1115   |
+| OR1112  | 0000-00-00 | P100113   | +966     | 0592222222 | 800         | Riyadh | Alyasmin      | Al Faraa      | 13322   | C11112 | S1120   |
+| OR1113  | 0000-00-00 | P100114   | +966     | 0593333333 | 520         | Dammam | Al Faisaliyah | Al Aziziah    | 34242   | C11113 | S1123   |
+| OR1114  | 0000-00-00 | P100115   | +966     | 0594444444 | 900         | Jeddah | Al Naeem      | An Naeem st   | 23212   | C11114 | S1113   |
++---------+------------+-----------+----------+------------+-------------+--------+---------------+---------------+---------+--------+---------+
+5 rows in set (0.011 sec)
+
+MariaDB [Walaa]> CREATE TABLE Contain(
+    -> ProductNo VARCHAR (10),
+    -> OrderNo VARCHAR (10),
+    -> Size VARCHAR (10),
+    -> Quantity VARCHAR(10),
+    -> FOREIGN KEY (ProductNo) REFERENCES Product (ProductNo),
+    -> FOREIGN KEY (OrderNo) REFERENCES Purchase (OrderNo));
+Query OK, 0 rows affected (0.034 sec)
+
+MariaDB [Walaa]> SELECT * FROM Contain;
+Empty set (0.004 sec)
+
+MariaDB [Walaa]> desc Contain;
++-----------+-------------+------+-----+---------+-------+
+| Field     | Type        | Null | Key | Default | Extra |
++-----------+-------------+------+-----+---------+-------+
+| ProductNo | varchar(10) | YES  | MUL | NULL    |       |
+| OrderNo   | varchar(10) | YES  | MUL | NULL    |       |
+| Size      | varchar(10) | YES  |     | NULL    |       |
+| Quantity  | varchar(10) | YES  |     | NULL    |       |
++-----------+-------------+------+-----+---------+-------+
+4 rows in set (0.013 sec)
+
+MariaDB [Walaa]> INSERT INTO Contain VALUES ('P100111','OR1110','S','2');
+Query OK, 1 row affected (0.011 sec)
+
+MariaDB [Walaa]> INSERT INTO Contain VALUES ('P100112','OR1111','M','1');
+Query OK, 1 row affected (0.007 sec)
+
+MariaDB [Walaa]> INSERT INTO Contain VALUES ('P100113','OR1112','M-L','2');
+Query OK, 1 row affected (0.007 sec)
+
+MariaDB [Walaa]> INSERT INTO Contain VALUES ('P100114','OR1113','L','2');
+Query OK, 1 row affected (0.007 sec)
+
+MariaDB [Walaa]> INSERT INTO Contain VALUES ('P100115','OR1114','S','2');
+Query OK, 1 row affected (0.007 sec)
+
+MariaDB [Walaa]> SELECT * FROM Contain;
++-----------+---------+------+----------+
+| ProductNo | OrderNo | Size | Quantity |
++-----------+---------+------+----------+
+| P100111   | OR1110  | S    | 2        |
+| P100112   | OR1111  | M    | 1        |
+| P100113   | OR1112  | M-L  | 2        |
+| P100114   | OR1113  | L    | 2        |
+| P100115   | OR1114  | S    | 2        |
++-----------+---------+------+----------+
+5 rows in set (0.001 sec)
+
+MariaDB [Walaa]> INSERT INTO Contain VALUES ('P100115','OR1114','S-M-L','30');
+Query OK, 1 row affected (0.007 sec)
+
+MariaDB [Walaa]> SELECT * FROM Contain;
++-----------+---------+-------+----------+
+| ProductNo | OrderNo | Size  | Quantity |
++-----------+---------+-------+----------+
+| P100111   | OR1110  | S     | 2        |
+| P100112   | OR1111  | M     | 1        |
+| P100113   | OR1112  | M-L   | 2        |
+| P100114   | OR1113  | L     | 2        |
+| P100115   | OR1114  | S     | 2        |
+| P100115   | OR1114  | S-M-L | 30       |
++-----------+---------+-------+----------+
+6 rows in set (0.001 sec)
+
+MariaDB [Walaa]> Update Contain
+    -> SET Size = 'S-L'
+    -> WHERE ProductNo = 'P100115';
+Query OK, 2 rows affected (0.015 sec)
+Rows matched: 2  Changed: 2  Warnings: 0
+
+MariaDB [Walaa]> SELECT * FROM Contain;
++-----------+---------+------+----------+
+| ProductNo | OrderNo | Size | Quantity |
++-----------+---------+------+----------+
+| P100111   | OR1110  | S    | 2        |
+| P100112   | OR1111  | M    | 1        |
+| P100113   | OR1112  | M-L  | 2        |
+| P100114   | OR1113  | L    | 2        |
+| P100115   | OR1114  | S-L  | 2        |
+| P100115   | OR1114  | S-L  | 30       |
++-----------+---------+------+----------+
+6 rows in set (0.000 sec)
+
+MariaDB [Walaa]> DELETE FROM Contain
+    -> WHERE ProductNo IN ('P100115','OR1114','S-L','30');
+Query OK, 2 rows affected (0.014 sec)
+
+MariaDB [Walaa]> SELECT * FROM Contain;
++-----------+---------+------+----------+
+| ProductNo | OrderNo | Size | Quantity |
++-----------+---------+------+----------+
+| P100111   | OR1110  | S    | 2        |
+| P100112   | OR1111  | M    | 1        |
+| P100113   | OR1112  | M-L  | 2        |
+| P100114   | OR1113  | L    | 2        |
++-----------+---------+------+----------+
+4 rows in set (0.001 sec)
+
+// All Database Tables:
+
+Microsoft Windows [Version 10.0.19044.1706]
+(c) Microsoft Corporation. All rights reserved.
+
+C:\xampp\mysql>mysql -u root -p
+Enter password:
+Welcome to the MariaDB monitor.  Commands end with ; or \g.
+Your MariaDB connection id is 9
+Server version: 10.4.22-MariaDB mariadb.org binary distribution
+
+Copyright (c) 2000, 2018, Oracle, MariaDB Corporation Ab and others.
+
+Type 'help;' or '\h' for help. Type '\c' to clear the current input statement.
+
+MariaDB [(none)]> use Walaa
+Database changed
+MariaDB [Walaa]> SELECT * FROM Branch;
++----------+--------+-------------+-------------------+---------+---------------+
+| BranchNo | City   | State       | Street            | Zipcode | TelephoneNo   |
++----------+--------+-------------+-------------------+---------+---------------+
+| b1001    | Jeddah | Al-Hamraa   | Andalus           | 23212   | +966522308734 |
+| b1002    | Riyadh | Al-Yasmin   | Anas Ibn Malik Rd | 13325   | +966568889065 |
+| b1003    | Riyadh | Al-Malqa    | Weg Valley        | 13522   | +966530001212 |
+| b1004    | Dammam | Al-Muntazah | Prince Metib Rd   | 34242   | +966560601713 |
++----------+--------+-------------+-------------------+---------+---------------+
+4 rows in set (0.018 sec)
+
+MariaDB [Walaa]> SELECT * FROM Customer;
++--------+------------+------------------+--------+------------+-------------+
+| CustId | PhoneNo    | Email            | Fname  | Lname      | CreditLimit |
++--------+------------+------------------+--------+------------+-------------+
+| C11110 | 0590000000 | Reem@gmail.com   | Reem   | Alamier    | 300         |
+| C11111 | 0591111111 | Wed@gmail.com    | Wed    | Soulyman   | 350         |
+| C11112 | 0592222222 | Ameera@gmail.com | Ameera | Alshumayri | 400         |
+| C11113 | 0593333333 | Layan@gmail.com  | Layan  | Almufadda  | 900         |
+| C11114 | 0594444444 | Sadeem@gmail.com | Sadeem | Albalochi  | 500         |
+| C11115 | 0595555555 | Walaa@gmail.com  | Walaa  | Bin Mahfou | 700         |
+| C11116 | 0596666666 | Refan@gmail.com  | Refan  | Attiah     | 650         |
+| C11117 | 0597777777 | Reham@gmail.com  | Reham  | Aboueldaha | 400         |
+| C11118 | 0598888888 | Atheer@gmail.com | Atheer | Albardawil | 350         |
+| C11119 | 0599999999 | Sahar@gmail.com  | Sahar  | Alamoudi   | 600         |
++--------+------------+------------------+--------+------------+-------------+
+10 rows in set (0.003 sec)
+
+MariaDB [Walaa]> SELECT * FROM Staff;
++---------+----------+--------+----------+------+--------+---------------+---------------------+--------+-----------+
+| StaffID | Name     | Sex    | Position | Age  | City   | State         | Street              | Salary | BranchHno |
++---------+----------+--------+----------+------+--------+---------------+---------------------+--------+-----------+
+| S1110   | Abdullah | Male   | Maneger  | 29   | Jeddah | Ash Shati     | Prince Naif         |   9000 | b1001     |
+| S1111   | Araa     | Female | Employee | 20   | Jeddah | Arrawudah     | Prince Sultan       |   5000 | b1001     |
+| S1112   | Layal    | Female | Employee | 31   | Jeddah | Al-Khalidiyah | Al Razi st          |   5000 | b1001     |
+| S1113   | Zuhraa   | Female | Employee | 19   | Jeddah | Al-Naeem      | An Naeem st         |   4700 | b1001     |
+| S1114   | Faisal   | Male   | Maneger  | 32   | Riyadh | Hiteen        | Al-Amariyah         |   9000 | b1002     |
+| S1115   | Yara     | Female | Employee | 24   | Riyadh | Al-Arid       | Abi Bakr            |   4900 | b1002     |
+| S1116   | Yara     | Female | Employee | 22   | Riyadh | Hiteen        | Prince Mohammed Rd  |   4700 | b1002     |
+| S1117   | Rania    | Female | Employee | 21   | Riyadh | Alyasmin      | Anas Ibn Malik Rd   |   4800 | b1002     |
+| S1118   | Ahmed    | Male   | Maneger  | 35   | Riyadh | Al Malqa      | Al Hawata           |   9000 | b1003     |
+| S1119   | Leen     | Female | Employee | 23   | Riyadh | Al Malqa      | Weg Valley          |   4800 | b1003     |
+| S1120   | Maryam   | Female | Employee | 27   | Riyadh | Al Yasmin     | Al Faraa            |   4900 | b1003     |
+| S1121   | Fatimah  | Female | Employee | 26   | Riyadh | Al Narjis     | Uthman Ibn Affan Rd |   4900 | b1003     |
+| S1122   | Majed    | Male   | Maneger  | 34   | Dammam | Ash Shulah    | Dhahran Rd          |   9000 | b1004     |
+| S1123   | Dana     | Female | Employee | 27   | Dammam | Al Faisaliyah | Al Imam Muhammad Rd |   4500 | b1004     |
+| S1124   | Nareman  | Female | Employee | 24   | Dammam | Al Faisaliyah | Al Aziziah          |   4700 | b1004     |
++---------+----------+--------+----------+------+--------+---------------+---------------------+--------+-----------+
+15 rows in set (0.008 sec)
+
+MariaDB [Walaa]> SELECT * FROM PhoneNo;
++---------+------------+
+| StaffID | PhoneNo    |
++---------+------------+
+| S1110   | 0561111111 |
+| S1111   | 0561111122 |
+| S1112   | 0561111133 |
+| S1113   | 0561111144 |
+| S1114   | 0561111145 |
+| S1115   | 0561111189 |
+| S1116   | 0561111199 |
+| S1117   | 0561111155 |
+| S1118   | 0561111166 |
+| S1119   | 0561111177 |
+| S1120   | 0561111188 |
+| S1121   | 0561111112 |
+| S1122   | 0561111110 |
+| S1123   | 0561111888 |
+| S1124   | 0561111190 |
+| S1125   | 0561111180 |
++---------+------------+
+16 rows in set (0.008 sec)
+
+MariaDB [Walaa]> SELECT * FROM Product;
++-----------+-----------------+---------+-------+-------+----------+
+| ProductNo | Collection_Name | Color   | Price | Size  | Quantity |
++-----------+-----------------+---------+-------+-------+----------+
+| P100111   | Summer2022      | Fuchsia |   390 | S-M-L | 24       |
+| P100112   | Summer2022      | White   |   450 | S-M-L | 20       |
+| P100113   | Summer2022      | Lilac   |   400 | S-M-L | 16       |
+| P100114   | Summer2022      | Blue    |   260 | S-M-L | 13       |
+| P100115   | Summer2022      | Red     |   450 | S-M-L | 08       |
+| P100116   | Summer2022      | Pink    |   200 | S-M-L | 20       |
+| P100117   | Summer2022      | Orange  |   350 | S-M-L | 12       |
++-----------+-----------------+---------+-------+-------+----------+
+7 rows in set (0.008 sec)
+
+MariaDB [Walaa]> SELECT * FROM has;
++----------+-----------+
+| BranchNo | ProductNo |
++----------+-----------+
+| b1001    | P100111   |
+| b1001    | P100112   |
+| b1001    | P100113   |
+| b1001    | P100114   |
+| b1001    | P100115   |
+| b1001    | P100116   |
+| b1001    | P100117   |
+| b1002    | P100111   |
+| b1002    | P100112   |
+| b1002    | P100113   |
+| b1002    | P100114   |
+| b1002    | P100115   |
+| b1002    | P100116   |
+| b1002    | P100117   |
+| b1003    | P100111   |
+| b1003    | P100112   |
+| b1003    | P100113   |
+| b1003    | P100114   |
+| b1003    | P100115   |
+| b1003    | P100116   |
+| b1003    | P100117   |
+| b1004    | P100111   |
+| b1004    | P100112   |
+| b1004    | P100113   |
+| b1004    | P100114   |
+| b1004    | P100115   |
+| b1004    | P100116   |
+| b1004    | P100117   |
++----------+-----------+
+28 rows in set (0.007 sec)
+
+MariaDB [Walaa]> SELECT * FROM Purchase;
++---------+------------+-----------+----------+------------+-------------+--------+---------------+---------------+---------+--------+---------+
+| OrderNo | OrderDate  | ProductNo | AreaCode | PhoneNo    | TotalAmount | City   | State         | Street        | ZipCode | CustID | StaffID |
++---------+------------+-----------+----------+------------+-------------+--------+---------------+---------------+---------+--------+---------+
+| OR1110  | 0000-00-00 | P100111   | +966     | 0590000000 | 780         | Jeddah | Arrawudah     | Prince Sultan | 23212   | C11110 | S1112   |
+| OR1111  | 0000-00-00 | P100112   | +966     | 0591111111 | 450         | Riyadh | Al-Aarid      | Abi Bakr      | 13325   | C11111 | S1115   |
+| OR1112  | 0000-00-00 | P100113   | +966     | 0592222222 | 800         | Riyadh | Alyasmin      | Al Faraa      | 13322   | C11112 | S1120   |
+| OR1113  | 0000-00-00 | P100114   | +966     | 0593333333 | 520         | Dammam | Al Faisaliyah | Al Aziziah    | 34242   | C11113 | S1123   |
+| OR1114  | 0000-00-00 | P100115   | +966     | 0594444444 | 900         | Jeddah | Al Naeem      | An Naeem st   | 23212   | C11114 | S1113   |
++---------+------------+-----------+----------+------------+-------------+--------+---------------+---------------+---------+--------+---------+
+5 rows in set (0.001 sec)
+
+MariaDB [Walaa]> SELECT * FROM Contain;
++-----------+---------+------+----------+
+| ProductNo | OrderNo | Size | Quantity |
++-----------+---------+------+----------+
+| P100111   | OR1110  | S    | 2        |
+| P100112   | OR1111  | M    | 1        |
+| P100113   | OR1112  | M-L  | 2        |
+| P100114   | OR1113  | L    | 2        |
++-----------+---------+------+----------+
+4 rows in set (0.001 sec)
+
+// WE ARE DONE!!
